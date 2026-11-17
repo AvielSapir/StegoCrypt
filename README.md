@@ -12,10 +12,10 @@ Unlike basic LSB tools that write bits sequentially (making them easy to spot wi
 
 ### LSB embedding & capacity
 
-For each RGB channel value $C \in [0, 255]$ and payload bit $b \in \{0, 1\}$, only the least significant bit is replaced:
+For each RGB channel value $C \in [0, 255]$ and payload bit $b \in \lbrace 0, 1 \rbrace$, only the least significant bit is replaced:
 
 $$
-C_{\text{new}} = (C \mathbin{\&} \text{0xFE}) \mid b
+C_{\text{new}} = (C \ \text{AND} \ \text{0xFE}) \ \text{OR} \ b
 $$
 
 This changes each channel by at most $\pm 1$ (< 0.4% intensity), which is invisible to the human eye. The maximum storage capacity of an RGB carrier image is:
